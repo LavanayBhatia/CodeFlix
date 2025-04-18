@@ -6,6 +6,7 @@
   <title>CodeQ Pro - Advanced Coding Questions Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body>
   <!-- Particles Container -->
@@ -23,7 +24,7 @@
     </ul>
     <button class="cta-button">Get Started</button>
   </nav>
-
+  <spline-viewer id="model" url="https://prod.spline.design/560sBTZPJH9Y3DZ1/scene.splinecode"></spline-viewer>
   <!-- Hero Section -->
   <section class="hero">
     <div class="code-bg" id="code-animation"></div>
@@ -54,7 +55,7 @@
       <p>JavaScript</p>
     </div>
     <div class="tech">
-        <i class="devicon-python-plain-wordmark colored"></i>
+        <i class="devicon-python-plain colored"></i>
       <p>Python</p>
     </div>
     <div class="tech">
@@ -233,7 +234,7 @@
       const container = document.getElementById('particles');
       const colors = ['#6e56cf', '#10b981', '#0ea5e9'];
       
-      for (let i = 0; i < 30; i++) {
+      for (let i = 0; i < 100; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
         const size = Math.random() * 5 + 1;

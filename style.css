@@ -495,12 +495,15 @@ margin: auto;
 overflow: hidden;
 position: relative;
 background: transparent;
+
+  
 }
 
 .slider-track {
 display: flex;
 width: calc(200px * 20); /* 10 icons * 2 (original + duplicate) */
 animation: scroll 40s linear infinite;
+padding-top: 50px;
 }
 
 .tech {
@@ -531,6 +534,7 @@ height: 150px;
 margin: auto;
 overflow: hidden;
 position: relative;
+margin-top:0vh;
 }
 
 .slider-track {
@@ -717,5 +721,10 @@ background: linear-gradient(to left, #000 0%, transparent 100%);
     color: #6c757d; /* Default icon color */
     transition: color 0.3s ease; /* Smooth transition for color change */
   }
-  /*
+ 
+  #model{
+    position: absolute;
+    margin-top: -2vh;
+  }
+  
   
