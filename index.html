@@ -316,95 +316,92 @@
   </footer>
 
   <script>
-    // Generate floating code elements
+  // --- Basic Setup ---
+  const heroContainer = document.getElementById('hero-brand');
+  const heroHighlight = heroContainer?.querySelector('.text-highlight');
+  const heroStars = heroContainer?.querySelector('.stars');
+  const chatContainer = document.getElementById('chatContainer');
+  const chatBody = document.getElementById('chatBody');
+  const typingIndicator = document.querySelector('.typing-indicator-container');
 
+  // --- Particle Generation (Hero Section) ---
+  function generateParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
 
-    // Generate particles
-    function generateParticles() {
-      const container = document.getElementById('particles');
-      const colors = ['#6e56cf', '#10b981', '#0ea5e9'];
-      
-      for (let i = 0; i < 100; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        const size = Math.random() * 5 + 1;
-        const particleCount = window.innerWidth < 768 ? 30 : 100;
+    const count = window.innerWidth < 768 ? 30 : 100;
+    const colors = ['#6e56cf', '#10b981', '#0ea5e9'];
 
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        particle.style.animationDuration = `${8 + Math.random() * 10}s`;
-        
-        container.appendChild(particle);
-      }
+    for (let i = 0; i < count; i++) {
+      const size = Math.random() * 5 + 1;
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-delay: ${Math.random() * 5}s;
+        animation-duration: ${8 + Math.random() * 10}s;
+      `;
+      container.appendChild(particle);
     }
+  }
 
-    // Parallax effect
-    function handleParallax() {
-      document.addEventListener('mousemove', (e) => {
-        const cards = document.querySelectorAll('.feature-card');
-        const mouseX = e.clientX / window.innerWidth - 0.5;
-        const mouseY = e.clientY / window.innerHeight - 0.5;
-        
-        cards.forEach(card => {
-          const cardRect = card.getBoundingClientRect();
-          const cardCenterX = cardRect.left + cardRect.width / 2;
-          const cardCenterY = cardRect.top + cardRect.height / 2;
-          
-          const offsetX = (cardCenterX - e.clientX) * 0.01;
-          const offsetY = (cardCenterY - e.clientY) * 0.01;
-          
-          card.style.transform = `translateY(-5px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
-        });
+  // --- Parallax (Limited for Mobile) ---
+  function handleParallax() {
+    if (window.innerWidth < 768) return; // Disable for mobile
+    const cards = document.querySelectorAll('.feature-card');
+
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX / window.innerWidth - 0.5;
+      const mouseY = e.clientY / window.innerHeight - 0.5;
+      cards.forEach(card => {
+        const offsetX = mouseX * 10;
+        const offsetY = mouseY * 10;
+        card.style.transform = `translateY(-5px) rotateY(${offsetX}deg) rotateX(${-offsetY}deg)`;
       });
-    }
+    });
+  }
 
-    // Initialize
-    window.addEventListener('DOMContentLoaded', () => {
-      generateParticles();
-      handleParallax();
-    }); 
-
-    const heroContainer = document.getElementById('hero-brand');
-    const heroHighlight = heroContainer.querySelector('.text-highlight');
-    const heroStars = heroContainer.querySelector('.stars');
-
-    // Create twinkling stars once
+  // --- Twinkling Stars ---
+  function createStars() {
+    if (!heroStars) return;
     for (let i = 0; i < 50; i++) {
       const star = document.createElement('div');
+      const size = Math.random() * 2 + 1;
       star.classList.add('star');
-      star.style.width = `${Math.random() * 2 + 1}px`;
-      star.style.height = star.style.width;
-      star.style.left = `${Math.random() * 100}%`;
-      star.style.top = `${Math.random() * 100}%`;
-      star.style.opacity = `${Math.random() * 0.7 + 0.5}`;
-      star.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      star.style.animationDelay = `${Math.random() * 5}s`;
+      star.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        opacity: ${Math.random() * 0.7 + 0.3};
+        animation-duration: ${Math.random() * 4 + 4}s;
+        animation-delay: ${Math.random() * 5}s;
+      `;
       heroStars.appendChild(star);
     }
+  }
 
-    // Only update clip path if needed (throttled for performance)
-    let lastClip = 0;
-    let ticking = false;
-
-    function updateClip(x) {
-      const rect = heroContainer.getBoundingClientRect();
-      const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
-
-      // prevent excessive updates
-      if (Math.abs(percentage - lastClip) > 0.5) {
-        heroHighlight.style.setProperty('--clip-pos', `${percentage}%`);
-        lastClip = percentage;
-      }
+  // --- Hover Reveal Effect ---
+  let lastClip = 0, ticking = false;
+  function updateClip(x) {
+    if (!heroContainer || !heroHighlight) return;
+    const rect = heroContainer.getBoundingClientRect();
+    const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+    if (Math.abs(percentage - lastClip) > 0.5) {
+      heroHighlight.style.setProperty('--clip-pos', `${percentage}%`);
+      lastClip = percentage;
     }
+  }
 
+  if (heroContainer) {
     heroContainer.addEventListener('mousemove', (e) => {
       const x = e.clientX - heroContainer.getBoundingClientRect().left;
       if (!ticking) {
-        window.requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
           updateClip(x);
           ticking = false;
         });
@@ -413,162 +410,54 @@
     });
 
     heroContainer.addEventListener('mouseleave', () => {
-      heroHighlight.style.setProperty('--clip-pos', '0%');
+      if (heroHighlight) heroHighlight.style.setProperty('--clip-pos', '0%');
     });
 
     heroContainer.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const x = touch.clientX - heroContainer.getBoundingClientRect().left;
+      const x = e.touches[0].clientX - heroContainer.getBoundingClientRect().left;
       updateClip(x);
     });
 
     heroContainer.addEventListener('touchend', () => {
-      heroHighlight.style.setProperty('--clip-pos', '0%');
+      if (heroHighlight) heroHighlight.style.setProperty('--clip-pos', '0%');
     });
+  }
 
-    // Chat functionality
-    const chatContainer = document.getElementById('chatContainer');
-    const chatBody = document.getElementById('chatBody');
-    const messageInput = document.getElementById('messageInput');
-    const sendButton = document.getElementById('sendButton');
-    const typingIndicator = document.querySelector('.typing-indicator-container');
+  // --- AI Chat Particles ---
+  function createChatParticles() {
+    const chatSection = document.querySelector('.ai-chat-section');
+    if (!chatSection) return;
+    const count = window.innerWidth < 768 ? 10 : 30;
+    const colors = ['rgba(110, 86, 207, 0.6)', 'rgba(16, 185, 129, 0.6)', 'rgba(14, 165, 233, 0.6)'];
 
-    // 3D tilt effect for chat container
-    function handleChatMouseMove(e) {
-      if (!chatContainer) return;
-      
-      const rect = chatContainer.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      
-      const angleX = (e.clientY - centerY) / 30;
-      const angleY = (centerX - e.clientX) / 30;
-      
-      chatContainer.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(0)`;
-      
-      // Update light position
-      document.documentElement.style.setProperty('--light-x', `${e.clientX}px`);
-      document.documentElement.style.setProperty('--light-y', `${e.clientY}px`);
+    for (let i = 0; i < count; i++) {
+      const size = Math.random() * 3 + 1;
+      const particle = document.createElement('div');
+      particle.className = 'chat-particle';
+      particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        background: ${colors[Math.floor(Math.random() * colors.length)]};
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation-duration: ${Math.random() * 15 + 10}s;
+        animation-delay: ${Math.random() * 5}s;
+      `;
+      chatSection.appendChild(particle);
     }
+  }
 
-    function handleChatMouseLeave() {
-      if (!chatContainer) return;
-      chatContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+  // --- Smooth Initialization ---
+  window.addEventListener('DOMContentLoaded', () => {
+    generateParticles();
+    createStars();
+    handleParallax();
+    createChatParticles();
+
+    if (chatContainer) {
+      chatContainer.style.animation = 'none'; // Remove initial animation
     }
-
-    // Send message function
-    function sendChatMessage() {
-      const message = messageInput.value.trim();
-      if (!message) return;
-      
-      // Add user message
-      addChatMessage('user', message);
-      
-      // Clear input
-      messageInput.value = '';
-      
-      // Show typing indicator
-      showTypingIndicator();
-      
-
-    }
-
-    // Add message to chat
-    function addChatMessage(type, text) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message', type);
-      
-      if (type === 'bot') {
-        const botIcon = document.createElement('div');
-        botIcon.classList.add('bot-icon');
-        botIcon.innerHTML = '<i class="ri-robot-2-line"></i>';
-        messageDiv.appendChild(botIcon);
-      }
-      
-      const messageContent = document.createElement('div');
-      messageContent.classList.add('message-content');
-      messageContent.textContent = text;
-      messageDiv.appendChild(messageContent);
-      
-      // Insert before typing indicator if it exists
-      if (typingIndicator && typingIndicator.parentNode === chatBody) {
-        chatBody.insertBefore(messageDiv, typingIndicator);
-      } else {
-        chatBody.appendChild(messageDiv);
-      }
-      
-      // Scroll to bottom
-      chatBody.scrollTop = chatBody.scrollHeight;
-      
-      // Add glass reflection effect
-      messageDiv.style.opacity = '0';
-      messageDiv.style.transform = 'translateY(10px)';
-      
-      setTimeout(() => {
-        messageDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-        messageDiv.style.opacity = '1';
-        messageDiv.style.transform = 'translateY(0)';
-      }, 10);
-    }
-
-    // Show typing indicator
-    function showTypingIndicator() {
-      if (typingIndicator) {
-        typingIndicator.style.display = 'flex';
-        chatBody.scrollTop = chatBody.scrollHeight;
-      }
-    }
-
-    // Hide typing indicator
-    function hideTypingIndicator() {
-      if (typingIndicator) {
-        typingIndicator.style.display = 'none';
-      }
-    }
-
-    // Initialize chat functionality
-   
-
-    // Create chat particles
-    function createChatParticles() {
-      const chatSection = document.querySelector('.ai-chat-section');
-      if (!chatSection) return;
-      
-      for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('chat-particle');
-        
-        const size = Math.random() * 3 + 1;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        const colors = ['rgba(110, 86, 207, 0.6)', 'rgba(16, 185, 129, 0.6)', 'rgba(14, 165, 233, 0.6)'];
-        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-        
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
-        
-        chatSection.appendChild(particle);
-      }
-    }
-
-    // Initialize everything when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-      generateParticles();
-      handleParallax();
-      createChatParticles();
-      
-      // Initialize chat if elements exist
-      if (chatContainer) {
-        // Set initial animation
-        chatContainer.style.animation = 'floatTilt 6s ease-in-out infinite';
-      }
-    });
-    
+  });
   </script>
 </body>
 </html>
