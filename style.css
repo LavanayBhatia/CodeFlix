@@ -727,6 +727,8 @@ transform: translateX(-50%);
 #model{
   position: absolute;
   margin-top: -8vh;
+  pointer-events: none;
+
 }
 
 .text-container {
