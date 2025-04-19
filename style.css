@@ -1492,6 +1492,8 @@ animation: floatStar linear infinite;
 @media (max-width: 480px) {
   .chat-container {
     height: 55vh;
+    animation:none !important;
+    transition: none !important;
   }
 
   .message {
