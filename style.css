@@ -1521,4 +1521,15 @@ animation: floatStar linear infinite;
   }
 }
 
+@media (max-width: 768px) {
+  /* Simplify floating effect */
+  .chat-container {
+    animation: none !important;
+    transform: none !important;
+  }
+
+ 
+
+}
+
 
