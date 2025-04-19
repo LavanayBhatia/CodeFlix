@@ -223,106 +223,41 @@
   </section>
 
   <!-- AI Chat Assistant Section -->
+   
   <section class="ai-chat-section">
     <div class="ai-chat-container">
       <div class="ai-chat-header">
         <h2 class="section-title">AI Coding Assistant</h2>
-        <p class="section-subtitle">Get instant help with your coding questions from our intelligent AI assistant</p>
+        <p class="section-subtitle">Chat with our friendly coding assistant.</p>
       </div>
-      
       <div class="ai-chat-content">
-        <!-- Left side content -->
-        <div class="ai-chat-info">
-          <div class="ai-chat-features">
-            <div class="ai-feature">
-              <div class="ai-feature-icon">
-                <i class="ri-code-line"></i>
-              </div>
-              <h3>Code Explanations</h3>
-              <p>Get detailed explanations for complex code snippets and algorithms</p>
-            </div>
-            <div class="ai-feature">
-              <div class="ai-feature-icon">
-                <i class="ri-bug-line"></i>
-              </div>
-              <h3>Debug Assistance</h3>
-              <p>Identify and fix bugs in your code with intelligent suggestions</p>
-            </div>
-            <div class="ai-feature">
-              <div class="ai-feature-icon">
-                <i class="ri-book-open-line"></i>
-              </div>
-              <h3>Learning Resources</h3>
-              <p>Access curated learning materials tailored to your skill level</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right side chat interface -->
         <div class="glass-chat-wrapper">
-          <!-- Background orbs -->
           <div class="chat-orb chat-orb-1"></div>
           <div class="chat-orb chat-orb-2"></div>
           <div class="chat-orb chat-orb-3"></div>
-          
-          <!-- Chat container -->
           <div class="chat-container" id="chatContainer">
-            <!-- Glass panel effect -->
             <div class="glass-panel"></div>
-            
-            <!-- Chat header -->
             <div class="chat-header">
               <span class="sparkle">✨</span>
-              <span>CodeQ Assistant</span>
+              <span>Flix Bot</span>
               <span class="sparkle">✨</span>
             </div>
-            
-            <!-- Chat body -->
             <div class="chat-body" id="chatBody">
-              <!-- Bot greeting -->
               <div class="message bot">
                 <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
                 <div class="message-content">Hey there! Need some help with coding?</div>
               </div>
-              
-              <!-- User replies -->
               <div class="message user">
                 <div class="message-content">Yes, I need help with my C program.</div>
               </div>
-              
-              <!-- Bot responds -->
               <div class="message bot">
                 <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
-                <div class="message-content">Got it! Let's dive right in. What's your question?</div>
+                <div class="message-content">Got it! Let’s dive right in. What's your question?</div>
               </div>
-              
-              <!-- User asks C question -->
               <div class="message user">
                 <div class="message-content">How do I reverse a string in C without using <code>strrev()</code>?</div>
               </div>
-              
-              <!-- Bot responds with code -->
-              <div class="message bot">
-                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
-                <div class="message-content">
-                  Here's how you can reverse a string in C without using strrev():
-                  <pre><code>void reverseString(char* str) {
-    int length = strlen(str);
-    int i, j;
-    char temp;
-    
-    for (i = 0, j = length - 1; i < j; i++, j--) {
-        temp = str[i];
-        str[i] = str[j];
-        str[j] = temp;
-    }
-}</code></pre>
-                  This function swaps characters from both ends moving toward the center until the entire string is reversed.
-                </div>
-              </div>
-              
-              <!-- Typing indicator (animated) -->
-              <div class="typing-indicator-container">
+              <div class="message bot" id="typingIndicator">
                 <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
                 <div class="typing-indicator">
                   <div class="typing-dot"></div>
@@ -331,17 +266,38 @@
                 </div>
               </div>
             </div>
-            
-            <!-- Chat footer -->
             <div class="chat-footer">
-              <input type="text" placeholder="Ask a coding question..." id="messageInput" />
-              <button id="sendButton"><i class="ri-send-plane-fill"></i></button>
+              <input type="text" placeholder="Type a message..." id="messageInput" />
+              <button id="sendButton">
+                <i class="ri-send-plane-2-fill"></i>
+              </button>
+              
+            </div>
+          </div>
+        </div>
+        <div class="ai-chat-info">
+          <div class="ai-chat-features">
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="ri-lightbulb-flash-line"></i></div>
+              <h3>Smart Assistance</h3>
+              <p>GlassBot understands your coding problems and responds with clarity.</p>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="ri-code-line"></i></div>
+              <h3>Coding Help</h3>
+              <p>Get help with your code instantly – from bugs to logic explanations.</p>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon"><i class="ri-terminal-box-line"></i></div>
+              <h3>Learn with Examples</h3>
+              <p>GlassBot gives you examples to help you understand better.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+  
   
   <!-- Footer -->
   <footer>
@@ -586,32 +542,7 @@
     }
 
     // Initialize chat functionality
-    if (chatContainer) {
-      chatContainer.addEventListener('mousemove', handleChatMouseMove);
-      chatContainer.addEventListener('mouseleave', handleChatMouseLeave);
-      
-      if (messageInput && sendButton) {
-        // Enable button when input has text
-        messageInput.addEventListener('input', () => {
-          sendButton.disabled = messageInput.value.trim() === '';
-        });
-        
-        // Send message on button click
-        sendButton.addEventListener('click', sendChatMessage);
-        
-        // Send message on Enter key
-        messageInput.addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') {
-            sendChatMessage();
-          }
-        });
-      }
-      
-      // Initially hide typing indicator
-      if (typingIndicator) {
-        typingIndicator.style.display = 'none';
-      }
-    }
+   
 
     // Create chat particles
     function createChatParticles() {
@@ -651,6 +582,7 @@
         chatContainer.style.animation = 'floatTilt 6s ease-in-out infinite';
       }
     });
+    
   </script>
 </body>
 </html>
