@@ -1565,3 +1565,9 @@ animation: floatStar linear infinite;
   }
 }
 
+
+@media (max-width: 768px) {
+    #model {
+        display: none;
+    }
+  }
