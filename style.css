@@ -754,7 +754,6 @@ filter: brightness(0.5);
 
 .text-highlight {
     position: absolute;
-<<<<<<< HEAD
 right: 0;
 bottom: 0;
 font-weight: bold;
@@ -793,34 +792,3 @@ animation: floatStar linear infinite;
 }
 
 
-=======
-    margin-top: -8vh;
-  }
-
-.tech {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-}
-
-.tech-icon {
-  filter: grayscale(100%); /* Makes the image grayscale */
-  transition: filter 0.3s ease; /* Adds smooth transition effect */
-  height: 50px !important;
-  width: 100px !important;
-}
-
-.tech-icon:hover {
-  filter: grayscale(0%); /* Removes grayscale filter on hover */
-  transform: scale(1.1);
-}
-
-.tech p {
-  margin-top: 5px;
-}
-
-
-
-  
->>>>>>> 23d0111dfba26408feab6cc0f97090d815a11335
