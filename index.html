@@ -471,21 +471,7 @@
       // Show typing indicator
       showTypingIndicator();
       
-      // Simulate bot response after delay
-      setTimeout(() => {
-        hideTypingIndicator();
-        
-        // Add bot response
-        const responses = [
-          "That's a great question! Let me help you with that.",
-          "I understand what you're asking. Here's what you need to know.",
-          "Great question! Here's how you can approach this problem.",
-          "I can definitely help with that. Here's my suggestion."
-        ];
-        
-        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-        addChatMessage('bot', randomResponse);
-      }, 1500);
+
     }
 
     // Add message to chat
