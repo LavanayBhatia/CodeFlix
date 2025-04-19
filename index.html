@@ -6,6 +6,7 @@
   <title>CodeQ Pro - Advanced Coding Questions Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -221,6 +222,126 @@
     </div>
   </section>
 
+  <!-- AI Chat Assistant Section -->
+  <section class="ai-chat-section">
+    <div class="ai-chat-container">
+      <div class="ai-chat-header">
+        <h2 class="section-title">AI Coding Assistant</h2>
+        <p class="section-subtitle">Get instant help with your coding questions from our intelligent AI assistant</p>
+      </div>
+      
+      <div class="ai-chat-content">
+        <!-- Left side content -->
+        <div class="ai-chat-info">
+          <div class="ai-chat-features">
+            <div class="ai-feature">
+              <div class="ai-feature-icon">
+                <i class="ri-code-line"></i>
+              </div>
+              <h3>Code Explanations</h3>
+              <p>Get detailed explanations for complex code snippets and algorithms</p>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon">
+                <i class="ri-bug-line"></i>
+              </div>
+              <h3>Debug Assistance</h3>
+              <p>Identify and fix bugs in your code with intelligent suggestions</p>
+            </div>
+            <div class="ai-feature">
+              <div class="ai-feature-icon">
+                <i class="ri-book-open-line"></i>
+              </div>
+              <h3>Learning Resources</h3>
+              <p>Access curated learning materials tailored to your skill level</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right side chat interface -->
+        <div class="glass-chat-wrapper">
+          <!-- Background orbs -->
+          <div class="chat-orb chat-orb-1"></div>
+          <div class="chat-orb chat-orb-2"></div>
+          <div class="chat-orb chat-orb-3"></div>
+          
+          <!-- Chat container -->
+          <div class="chat-container" id="chatContainer">
+            <!-- Glass panel effect -->
+            <div class="glass-panel"></div>
+            
+            <!-- Chat header -->
+            <div class="chat-header">
+              <span class="sparkle">✨</span>
+              <span>CodeQ Assistant</span>
+              <span class="sparkle">✨</span>
+            </div>
+            
+            <!-- Chat body -->
+            <div class="chat-body" id="chatBody">
+              <!-- Bot greeting -->
+              <div class="message bot">
+                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                <div class="message-content">Hey there! Need some help with coding?</div>
+              </div>
+              
+              <!-- User replies -->
+              <div class="message user">
+                <div class="message-content">Yes, I need help with my C program.</div>
+              </div>
+              
+              <!-- Bot responds -->
+              <div class="message bot">
+                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                <div class="message-content">Got it! Let's dive right in. What's your question?</div>
+              </div>
+              
+              <!-- User asks C question -->
+              <div class="message user">
+                <div class="message-content">How do I reverse a string in C without using <code>strrev()</code>?</div>
+              </div>
+              
+              <!-- Bot responds with code -->
+              <div class="message bot">
+                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                <div class="message-content">
+                  Here's how you can reverse a string in C without using strrev():
+                  <pre><code>void reverseString(char* str) {
+    int length = strlen(str);
+    int i, j;
+    char temp;
+    
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+}</code></pre>
+                  This function swaps characters from both ends moving toward the center until the entire string is reversed.
+                </div>
+              </div>
+              
+              <!-- Typing indicator (animated) -->
+              <div class="typing-indicator-container">
+                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                <div class="typing-indicator">
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                  <div class="typing-dot"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Chat footer -->
+            <div class="chat-footer">
+              <input type="text" placeholder="Ask a coding question..." id="messageInput" />
+              <button id="sendButton"><i class="ri-send-plane-fill"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   
   <!-- Footer -->
   <footer>
@@ -292,64 +413,244 @@
     }); 
 
     const heroContainer = document.getElementById('hero-brand');
-const heroHighlight = heroContainer.querySelector('.text-highlight');
-const heroStars = heroContainer.querySelector('.stars');
+    const heroHighlight = heroContainer.querySelector('.text-highlight');
+    const heroStars = heroContainer.querySelector('.stars');
 
-// Create twinkling stars once
-for (let i = 0; i < 50; i++) {
-  const star = document.createElement('div');
-  star.classList.add('star');
-  star.style.width = `${Math.random() * 2 + 1}px`;
-  star.style.height = star.style.width;
-  star.style.left = `${Math.random() * 100}%`;
-  star.style.top = `${Math.random() * 100}%`;
-  star.style.opacity = `${Math.random() * 0.7 + 0.5}`;
-  star.style.animationDuration = `${Math.random() * 5 + 5}s`;
-  star.style.animationDelay = `${Math.random() * 5}s`;
-  heroStars.appendChild(star);
-}
+    // Create twinkling stars once
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.width = `${Math.random() * 2 + 1}px`;
+      star.style.height = star.style.width;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.opacity = `${Math.random() * 0.7 + 0.5}`;
+      star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      heroStars.appendChild(star);
+    }
 
-// Only update clip path if needed (throttled for performance)
-let lastClip = 0;
-let ticking = false;
+    // Only update clip path if needed (throttled for performance)
+    let lastClip = 0;
+    let ticking = false;
 
-function updateClip(x) {
-  const rect = heroContainer.getBoundingClientRect();
-  const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+    function updateClip(x) {
+      const rect = heroContainer.getBoundingClientRect();
+      const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
 
-  // prevent excessive updates
-  if (Math.abs(percentage - lastClip) > 0.5) {
-    heroHighlight.style.setProperty('--clip-pos', `${percentage}%`);
-    lastClip = percentage;
-  }
-}
+      // prevent excessive updates
+      if (Math.abs(percentage - lastClip) > 0.5) {
+        heroHighlight.style.setProperty('--clip-pos', `${percentage}%`);
+        lastClip = percentage;
+      }
+    }
 
-heroContainer.addEventListener('mousemove', (e) => {
-  const x = e.clientX - heroContainer.getBoundingClientRect().left;
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
-      updateClip(x);
-      ticking = false;
+    heroContainer.addEventListener('mousemove', (e) => {
+      const x = e.clientX - heroContainer.getBoundingClientRect().left;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateClip(x);
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
-    ticking = true;
-  }
-});
 
-heroContainer.addEventListener('mouseleave', () => {
-  heroHighlight.style.setProperty('--clip-pos', '0%');
-});
+    heroContainer.addEventListener('mouseleave', () => {
+      heroHighlight.style.setProperty('--clip-pos', '0%');
+    });
 
-heroContainer.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  const touch = e.touches[0];
-  const x = touch.clientX - heroContainer.getBoundingClientRect().left;
-  updateClip(x);
-});
+    heroContainer.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const x = touch.clientX - heroContainer.getBoundingClientRect().left;
+      updateClip(x);
+    });
 
-heroContainer.addEventListener('touchend', () => {
-  heroHighlight.style.setProperty('--clip-pos', '0%');
-});
+    heroContainer.addEventListener('touchend', () => {
+      heroHighlight.style.setProperty('--clip-pos', '0%');
+    });
 
+    // Chat functionality
+    const chatContainer = document.getElementById('chatContainer');
+    const chatBody = document.getElementById('chatBody');
+    const messageInput = document.getElementById('messageInput');
+    const sendButton = document.getElementById('sendButton');
+    const typingIndicator = document.querySelector('.typing-indicator-container');
+
+    // 3D tilt effect for chat container
+    function handleChatMouseMove(e) {
+      if (!chatContainer) return;
+      
+      const rect = chatContainer.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      
+      const angleX = (e.clientY - centerY) / 30;
+      const angleY = (centerX - e.clientX) / 30;
+      
+      chatContainer.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateZ(0)`;
+      
+      // Update light position
+      document.documentElement.style.setProperty('--light-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--light-y', `${e.clientY}px`);
+    }
+
+    function handleChatMouseLeave() {
+      if (!chatContainer) return;
+      chatContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    }
+
+    // Send message function
+    function sendChatMessage() {
+      const message = messageInput.value.trim();
+      if (!message) return;
+      
+      // Add user message
+      addChatMessage('user', message);
+      
+      // Clear input
+      messageInput.value = '';
+      
+      // Show typing indicator
+      showTypingIndicator();
+      
+      // Simulate bot response after delay
+      setTimeout(() => {
+        hideTypingIndicator();
+        
+        // Add bot response
+        const responses = [
+          "That's a great question! Let me help you with that.",
+          "I understand what you're asking. Here's what you need to know.",
+          "Great question! Here's how you can approach this problem.",
+          "I can definitely help with that. Here's my suggestion."
+        ];
+        
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        addChatMessage('bot', randomResponse);
+      }, 1500);
+    }
+
+    // Add message to chat
+    function addChatMessage(type, text) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', type);
+      
+      if (type === 'bot') {
+        const botIcon = document.createElement('div');
+        botIcon.classList.add('bot-icon');
+        botIcon.innerHTML = '<i class="ri-robot-2-line"></i>';
+        messageDiv.appendChild(botIcon);
+      }
+      
+      const messageContent = document.createElement('div');
+      messageContent.classList.add('message-content');
+      messageContent.textContent = text;
+      messageDiv.appendChild(messageContent);
+      
+      // Insert before typing indicator if it exists
+      if (typingIndicator && typingIndicator.parentNode === chatBody) {
+        chatBody.insertBefore(messageDiv, typingIndicator);
+      } else {
+        chatBody.appendChild(messageDiv);
+      }
+      
+      // Scroll to bottom
+      chatBody.scrollTop = chatBody.scrollHeight;
+      
+      // Add glass reflection effect
+      messageDiv.style.opacity = '0';
+      messageDiv.style.transform = 'translateY(10px)';
+      
+      setTimeout(() => {
+        messageDiv.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+        messageDiv.style.opacity = '1';
+        messageDiv.style.transform = 'translateY(0)';
+      }, 10);
+    }
+
+    // Show typing indicator
+    function showTypingIndicator() {
+      if (typingIndicator) {
+        typingIndicator.style.display = 'flex';
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+    }
+
+    // Hide typing indicator
+    function hideTypingIndicator() {
+      if (typingIndicator) {
+        typingIndicator.style.display = 'none';
+      }
+    }
+
+    // Initialize chat functionality
+    if (chatContainer) {
+      chatContainer.addEventListener('mousemove', handleChatMouseMove);
+      chatContainer.addEventListener('mouseleave', handleChatMouseLeave);
+      
+      if (messageInput && sendButton) {
+        // Enable button when input has text
+        messageInput.addEventListener('input', () => {
+          sendButton.disabled = messageInput.value.trim() === '';
+        });
+        
+        // Send message on button click
+        sendButton.addEventListener('click', sendChatMessage);
+        
+        // Send message on Enter key
+        messageInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            sendChatMessage();
+          }
+        });
+      }
+      
+      // Initially hide typing indicator
+      if (typingIndicator) {
+        typingIndicator.style.display = 'none';
+      }
+    }
+
+    // Create chat particles
+    function createChatParticles() {
+      const chatSection = document.querySelector('.ai-chat-section');
+      if (!chatSection) return;
+      
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('chat-particle');
+        
+        const size = Math.random() * 3 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        const colors = ['rgba(110, 86, 207, 0.6)', 'rgba(16, 185, 129, 0.6)', 'rgba(14, 165, 233, 0.6)'];
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        chatSection.appendChild(particle);
+      }
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      generateParticles();
+      handleParallax();
+      createChatParticles();
+      
+      // Initialize chat if elements exist
+      if (chatContainer) {
+        // Set initial animation
+        chatContainer.style.animation = 'floatTilt 6s ease-in-out infinite';
+      }
+    });
   </script>
 </body>
 </html>
