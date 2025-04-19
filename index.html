@@ -26,14 +26,22 @@
   </nav>
   <spline-viewer id="model" url="https://prod.spline.design/560sBTZPJH9Y3DZ1/scene.splinecode"></spline-viewer>
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="code-bg" id="code-animation"></div>
-    <div class="hero-content">
-      <h1>Master Coding with Interactive Challenges</h1>
-      <p>CodeQ Pro delivers intelligent coding problems tailored to your skill level. Practice with real-world scenarios and elevate your programming skills.</p>
-      <button class="cta-button hero-cta">Start Coding Now</button>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="code-bg" id="code-animation"></div>
+  <div class="hero-content">
+    <!-- ✅ Cleaned-up single CodeFlixLabs block -->
+    <div class="text-container" id="hero-brand">
+      <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;CodeFlixLabs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="text-highlight">&nbsp;&nbsp;&nbsp;&nbsp;CodeFlixLabs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="stars"></div>
     </div>
-  </section>
+
+    <p>CodeQ Pro delivers intelligent coding problems tailored to your skill level. Practice with real-world scenarios and elevate your programming skills.</p>
+    <button class="cta-button hero-cta">Start Coding Now</button>
+  </div>
+</section>
+
 
 <!-- Remix & Devicon CDN -->
 <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -257,7 +265,67 @@
     window.addEventListener('DOMContentLoaded', () => {
       generateParticles();
       handleParallax();
+    }); 
+
+    const heroContainer = document.getElementById('hero-brand');
+const heroHighlight = heroContainer.querySelector('.text-highlight');
+const heroStars = heroContainer.querySelector('.stars');
+
+// Create twinkling stars once
+for (let i = 0; i < 50; i++) {
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.width = `${Math.random() * 2 + 1}px`;
+  star.style.height = star.style.width;
+  star.style.left = `${Math.random() * 100}%`;
+  star.style.top = `${Math.random() * 100}%`;
+  star.style.opacity = `${Math.random() * 0.7 + 0.5}`;
+  star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+  star.style.animationDelay = `${Math.random() * 5}s`;
+  heroStars.appendChild(star);
+}
+
+// Only update clip path if needed (throttled for performance)
+let lastClip = 0;
+let ticking = false;
+
+function updateClip(x) {
+  const rect = heroContainer.getBoundingClientRect();
+  const percentage = Math.min(Math.max((x / rect.width) * 100, 0), 100);
+
+  // prevent excessive updates
+  if (Math.abs(percentage - lastClip) > 0.5) {
+    heroHighlight.style.setProperty('--clip-pos', `${percentage}%`);
+    lastClip = percentage;
+  }
+}
+
+heroContainer.addEventListener('mousemove', (e) => {
+  const x = e.clientX - heroContainer.getBoundingClientRect().left;
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      updateClip(x);
+      ticking = false;
     });
+    ticking = true;
+  }
+});
+
+heroContainer.addEventListener('mouseleave', () => {
+  heroHighlight.style.setProperty('--clip-pos', '0%');
+});
+
+heroContainer.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const x = touch.clientX - heroContainer.getBoundingClientRect().left;
+  updateClip(x);
+});
+
+heroContainer.addEventListener('touchend', () => {
+  heroHighlight.style.setProperty('--clip-pos', '0%');
+});
+
   </script>
 </body>
 </html>
