@@ -128,7 +128,7 @@ body {
   max-width: 800px;
   text-align: center;
   z-index: 2;
-  margin-top: 2vh;
+  margin-top: -20vh;
 }
 
 .hero h1 {
@@ -1010,6 +1010,7 @@ animation: floatStar linear infinite;
   z-index: -1;
 }
 
+
 .glass-panel::after {
   content: "";
   position: absolute;
@@ -1508,33 +1509,57 @@ animation: floatStar linear infinite;
   }
 }
 
-@media (max-width: 768px) {
-  * {
-    transition: none !important;
-    animation: none !important;
-    will-change: auto !important;
+@media (min-width: 768px) {
+  .glass-panel::before {
+    display: block;
+    animation: glassShine 8s linear infinite;
   }
 
-  html, body {
-    scroll-behavior: auto !important;
-    overflow-x: hidden;
-  }
-
-  .your-chatbot-div-class, .any-animated-box {
-    animation: none !important;
-    transition: none !important;
+  .chat-container {
+    animation: floatTilt 6s ease-in-out infinite;
   }
 }
-@media (max-width: 768px) {
-  .chatbot-box {
-    backdrop-filter: none !important;
-    filter: none !important;
-    
+@keyframes floatTilt {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.chat-container {
+  animation: floatTilt 6s ease-in-out infinite;
+}
+@media (min-width: 768px) {
+  .chat-container {
+    animation: floatTilt 6s ease-in-out infinite;
   }
 }
 
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@media (min-width: 768px) {
+  .chat-container {
+    animation: floatTilt 6s ease-in-out infinite;
+  }
 }
+@keyframes floatTilt {
+  0% {
+    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(1000px) translateY(-6px) rotateX(-1.5deg) rotateY(1deg);
+  }
+  50% {
+    transform: perspective(1000px) translateY(-3px) rotateX(1.5deg) rotateY(-1deg);
+  }
+  75% {
+    transform: perspective(1000px) translateY(-5px) rotateX(-1deg) rotateY(0.5deg);
+  }
+  100% {
+    transform: perspective(1000px) translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+}
+@media (min-width: 768px) {
+  .chat-container {
+    animation: floatTilt 6s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+

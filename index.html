@@ -454,10 +454,11 @@
     handleParallax();
     createChatParticles();
 
-    if (chatContainer) {
-      chatContainer.style.animation = 'none'; // Remove initial animation
-    }
-  });
+    if (window.innerWidth < 768) {
+  chatContainer.style.animation = 'none';
+}
+
+  
   </script>
 </body>
 </html>
