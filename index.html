@@ -765,31 +765,47 @@
   window.addEventListener('resize', animateOnScroll);
 });
 
+let activeRockets = 0;
+const maxRockets = 6; // ✨ You can change this to your preferred max rocket count
+
 function launchRockets(count = 3) {
-    const rocketContainer = document.getElementById("dynamicRockets");
+  const rocketContainer = document.getElementById("dynamicRockets");
 
+  // Only add rockets if under the max limit
+  if (activeRockets >= maxRockets) return;
 
-    for (let i = 0; i < count; i++) {
-      const rocket = document.createElement("div");
-      rocket.className = "floating-rocket";
-      rocket.innerHTML = '<i class="ri-rocket-line"></i>';
+  for (let i = 0; i < count; i++) {
+    if (activeRockets >= maxRockets) break;
 
-      // Random left position
-      rocket.style.left = Math.random() * 90 + "%";
+    const rocket = document.createElement("div");
+    rocket.className = "floating-rocket";
+    rocket.innerHTML = '<i class="ri-rocket-line"></i>';
 
-      // Vary animation duration
-      const duration = Math.random() * 3 + 4; // 4-7 seconds
-      rocket.style.animationDuration = `${duration}s`;
+    // Position & animation duration
+    rocket.style.left = Math.random() * 90 + "%";
+    const duration = Math.random() * 3 + 4;
+    rocket.style.animationDuration = `${duration}s`;
+    rocket.style.animationDelay = `${Math.random()}s`;
 
-      // Optional: add unique delay
-      rocket.style.animationDelay = `${Math.random() * 1}s`;
+    // Burst effect on finish
+    const burst = document.createElement("div");
+    burst.className = "rocket-burst";
+    rocket.appendChild(burst);
 
-      rocketContainer.appendChild(rocket);
+    rocketContainer.appendChild(rocket);
+    activeRockets++;
 
-      // Remove rocket after animation completes
-      setTimeout(() => rocket.remove(), duration * 1000);
-    }
+    setTimeout(() => {
+      burst.classList.add("burst-animate");
+      rocket.querySelector("i").style.opacity = "0";
+      setTimeout(() => {
+        rocket.remove();
+        activeRockets--; // ✅ Decrease count when removed
+      }, 600);
+    }, duration * 1000);
   }
+}
+
 
   // Trigger rocket animations when leaderboard scrolls into view
   const leaderboard = document.querySelector(".leaderboard-section");
