@@ -2072,7 +2072,6 @@ animation: floatStar linear infinite;
 
 }
 
-<<<<<<< Updated upstream
 
 
   /* Media Queries */
@@ -2150,7 +2149,6 @@ animation: floatStar linear infinite;
       width: 100%;
     }
   }
-=======
 .floating-rocket {
   position: absolute;
   bottom: -40px;
@@ -2198,4 +2196,3 @@ animation: floatStar linear infinite;
 }
 
 
->>>>>>> Stashed changes
