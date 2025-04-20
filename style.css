@@ -2072,3 +2072,80 @@ animation: floatStar linear infinite;
 
 }
 
+
+
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .text,
+    .text-highlight {
+      font-size: 3rem;
+      white-space: nowrap;
+    }
+    
+    .hero-content {
+      padding: 0 5%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .text,
+    .text-highlight {
+      font-size: 2.5rem;
+      white-space: nowrap;
+    }
+    
+    .hero {
+      padding: 1.5rem 5%;
+    }
+    
+    .hero-content {
+      margin-top: 1vh;
+      text-align: center;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+
+    }
+    
+    .hero-cta {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text,
+    .text-highlight {
+      font-size: 2rem;
+      white-space: nowrap; /* Reinforcing the single line requirement */
+    }
+    
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 4%;
+    }
+    
+    .hero p {
+      font-size: 0.95rem;
+      padding: 0.7rem 1.2rem;
+
+    }
+    
+    .hero-cta {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  @keyframes highlight {
+    0%, 100% {
+      width: 0;
+    }
+    50% {
+      width: 100%;
+    }
+  }
