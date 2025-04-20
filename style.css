@@ -1582,6 +1582,7 @@ animation: floatStar linear infinite;
 }
 
 .achievement-card {
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -1592,6 +1593,9 @@ animation: floatStar linear infinite;
   border: 1px solid rgba(255, 255, 255, 0.06);
   animation: floatCard 4s ease-in-out infinite;
   margin-top: 8px;
+  width: 17vw;
+  right: -11vw;
+  top: -10px;
 }
 
 .achievement-icon {
