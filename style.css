@@ -2072,6 +2072,7 @@ animation: floatStar linear infinite;
 
 }
 
+<<<<<<< Updated upstream
 
 
   /* Media Queries */
@@ -2149,3 +2150,52 @@ animation: floatStar linear infinite;
       width: 100%;
     }
   }
+=======
+.floating-rocket {
+  position: absolute;
+  bottom: -40px;
+  font-size: 2rem;
+  color: var(--primary);
+  animation: rocketFloat 5s ease-in infinite;
+  filter: drop-shadow(0 0 10px var(--primary-glow));
+  z-index: 3;
+}
+
+.floating-rocket::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  background: linear-gradient(to bottom, var(--primary-glow), transparent);
+  border-radius: 10px;
+  animation: sparkle 0.5s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+@keyframes rocketFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0.4;
+    height: 60px;
+  }
+  100% {
+    opacity: 1;
+    height: 30px;
+  }
+}
+
+
+>>>>>>> Stashed changes

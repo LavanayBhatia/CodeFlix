@@ -33,8 +33,13 @@
   <div class="hero-content">
     <!-- ✅ Cleaned-up single CodeFlixLabs block -->
     <div class="text-container" id="hero-brand">
+<<<<<<< Updated upstream
       <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
       <div class="text-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+=======
+      <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;Code&nbsp;Flix&nbsp;Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      <div class="text-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Code&nbsp;Flix&nbsp;Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+>>>>>>> Stashed changes
       <div class="stars"></div>
     </div>
 
@@ -333,47 +338,9 @@
       </div>
     </div>
     
-    <!-- Rocket Animation Container -->
-    <div class="rocket-container">
-      <div class="rocket rocket-1">
-        <div class="rocket-body">
-          <div class="rocket-window"></div>
-        </div>
-        <div class="rocket-fins"></div>
-        <div class="rocket-fire">
-          <div class="fire-main"></div>
-          <div class="fire-side fire-side-left"></div>
-          <div class="fire-side fire-side-right"></div>
-        </div>
-        <div class="rocket-trail"></div>
-      </div>
-      
-      <div class="rocket rocket-2">
-        <div class="rocket-body">
-          <div class="rocket-window"></div>
-        </div>
-        <div class="rocket-fins"></div>
-        <div class="rocket-fire">
-          <div class="fire-main"></div>
-          <div class="fire-side fire-side-left"></div>
-          <div class="fire-side fire-side-right"></div>
-        </div>
-        <div class="rocket-trail"></div>
-      </div>
-      
-      <div class="rocket rocket-3">
-        <div class="rocket-body">
-          <div class="rocket-window"></div>
-        </div>
-        <div class="rocket-fins"></div>
-        <div class="rocket-fire">
-          <div class="fire-main"></div>
-          <div class="fire-side fire-side-left"></div>
-          <div class="fire-side fire-side-right"></div>
-        </div>
-        <div class="rocket-trail"></div>
-      </div>
-    </div>
+ <!-- New Rocket Animation Container -->
+<div id="dynamicRockets"></div>
+
   </div>
 </section>
 
@@ -458,7 +425,7 @@
         height: ${size}px;
         left: ${Math.random() * 100}%;
         top: ${Math.random() * 100}%;
-        opacity: ${Math.random() * 0.7 + 0.3};
+        opacity: ${Math.random() * 0.4 + 0.4};
         animation-duration: ${Math.random() * 4 + 4}s;
         animation-delay: ${Math.random() * 5}s;
       `;
@@ -801,6 +768,42 @@
   // Re-trigger animations when window is resized
   window.addEventListener('resize', animateOnScroll);
 });
+
+function launchRockets(count = 3) {
+    const rocketContainer = document.getElementById("dynamicRockets");
+
+
+    for (let i = 0; i < count; i++) {
+      const rocket = document.createElement("div");
+      rocket.className = "floating-rocket";
+      rocket.innerHTML = '<i class="ri-rocket-line"></i>';
+
+      // Random left position
+      rocket.style.left = Math.random() * 90 + "%";
+
+      // Vary animation duration
+      const duration = Math.random() * 3 + 4; // 4-7 seconds
+      rocket.style.animationDuration = `${duration}s`;
+
+      // Optional: add unique delay
+      rocket.style.animationDelay = `${Math.random() * 1}s`;
+
+      rocketContainer.appendChild(rocket);
+
+      // Remove rocket after animation completes
+      setTimeout(() => rocket.remove(), duration * 1000);
+    }
+  }
+
+  // Trigger rocket animations when leaderboard scrolls into view
+  const leaderboard = document.querySelector(".leaderboard-section");
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      launchRockets(5);
+    }
+  }, { threshold: 0.3 });
+
+  if (leaderboard) observer.observe(leaderboard);
 
   
   </script>
