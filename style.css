@@ -2196,3 +2196,24 @@ animation: floatStar linear infinite;
 }
 
 
+@media (max-width: 768px) {
+  .trophy-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .achievement-card {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    animation: none !important;
+    width: 90%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
