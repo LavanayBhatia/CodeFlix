@@ -10,356 +10,369 @@
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body>
-  <!-- Particles Container -->
-  <div class="particles-container" id="particles"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">CodeFlix<span class="logo-highlight">Labs</span></div>
-    <ul class="nav-links">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Pricing</a></li>
-      <li><a href="#">Documentation</a></li>
-      <li><a href="#">Blog</a></li>
-    </ul>
-    <button class="cta-button">Get Started</button>
-  </nav>
-  <spline-viewer id="model" url="https://prod.spline.design/560sBTZPJH9Y3DZ1/scene.splinecode"></spline-viewer>
-  <!-- Hero Section -->
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="code-bg" id="code-animation"></div>
-  <div class="hero-content">
-    <!-- ✅ Cleaned-up single CodeFlixLabs block -->
-    <div class="text-container" id="hero-brand">
-
-      <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
-      <div class="text-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
-      <div class="stars"></div>
-    </div>
-
-    <p>CodeFlixLabs delivers intelligent coding problems tailored to your skill level. Practice with real-world scenarios and elevate your programming skills.</p>
-    <button class="cta-button hero-cta">Start Coding Now</button>
-  </div>
-</section>
-
-
-<!-- Remix & Devicon CDN -->
-<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-<div class="slider">
-  <div class="slider-track">
-    <!-- Tech icons with labels -->
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="tech-icon" />
-      <p>HTML</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="tech-icon" />
-      <p>CSS</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="tech-icon" />
-      <p>JavaScript</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" class="tech-icon">
-      <p>Python</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" class="tech-icon"/>
-      <p>Swift</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="tech-icon"/>
-      <p>C</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" class="tech-icon" />
-      <p>C++</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="tech-icon"/>
-      <p>React</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="tech-icon" />
-      <p>Figma</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="tech-icon" />
-      <p>Git</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" class="tech-icon" />
-      <p>GitLab</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" class="tech-icon" />
-      <p>Kotlin</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="tech-icon" />
-      <p>php</p>
-    </div>
-
-
-    <!-- Duplicate for seamless infinite scroll -->
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="tech-icon" />
-      <p>HTML</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="tech-icon" />
-      <p>CSS</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="tech-icon" />
-      <p>JavaScript</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" class="tech-icon">
-      <p>Python</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" class="tech-icon"/>
-      <p>Swift</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="tech-icon"/>
-      <p>C</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" class="tech-icon" />
-      <p>C++</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="tech-icon"/>
-      <p>React</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="tech-icon" />
-      <p>Figma</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="tech-icon" />
-      <p>Git</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" class="tech-icon" />
-      <p>GitLab</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" class="tech-icon" />
-      <p>Kotlin</p>
-    </div>
-    <div class="tech">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="tech-icon" />
-      <p>php</p>
+  <!-- Intro Animation -->
+  <div class="intro-animation" id="introAnimation">
+    <div class="intro-particles" id="introParticles"></div>
+    <div class="intro-content">
+      <div class="intro-glow"></div>
+      <div class="intro-text">Code Flix Labs</div>
     </div>
   </div>
-</div>
+
+  <div class="all_content">
+    <!-- Particles Container -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">CodeFlix<span class="logo-highlight">Labs</span></div>
+      <ul class="nav-links">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Languages</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+      <button class="cta-button">Get Started</button>
+    </nav>
+    <spline-viewer id="model" url="https://prod.spline.design/560sBTZPJH9Y3DZ1/scene.splinecode"></spline-viewer>
+    <!-- Hero Section -->
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="code-bg" id="code-animation"></div>
+    <div class="hero-content">
+      <!-- ✅ Cleaned-up single CodeFlixLabs block -->
+      <div class="text-container" id="hero-brand">
+
+        <div class="text">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="text-highlight">&nbsp;&nbsp;&nbsp;&nbsp;Code Flix Labs&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="stars"></div>
+      </div>
+
+      <p>CodeFlixLabs delivers intelligent coding problems tailored to your skill level. Practice with real-world scenarios and elevate your programming skills.</p>
+      <button class="cta-button hero-cta">Start Coding Now</button>
+    </div>
+  </section>
 
 
-  <!-- Features Section -->
-  <section class="features">
-    <h2 class="section-title">Powerful Features</h2>
-    <p class="section-subtitle">Discover the tools that will accelerate your coding journey and help you become a better developer.</p>
+  <!-- Remix & Devicon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <div class="slider">
+    <div class="slider-track">
+      <!-- Tech icons with labels -->
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="tech-icon" />
+        <p>HTML</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="tech-icon" />
+        <p>CSS</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="tech-icon" />
+        <p>JavaScript</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" class="tech-icon">
+        <p>Python</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" class="tech-icon"/>
+        <p>Swift</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="tech-icon"/>
+        <p>C</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" class="tech-icon" />
+        <p>C++</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="tech-icon"/>
+        <p>React</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="tech-icon" />
+        <p>Figma</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="tech-icon" />
+        <p>Git</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" class="tech-icon" />
+        <p>GitLab</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" class="tech-icon" />
+        <p>Kotlin</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="tech-icon" />
+        <p>php</p>
+      </div>
+
+
+      <!-- Duplicate for seamless infinite scroll -->
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="tech-icon" />
+        <p>HTML</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="tech-icon" />
+        <p>CSS</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="tech-icon" />
+        <p>JavaScript</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" class="tech-icon">
+        <p>Python</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" class="tech-icon"/>
+        <p>Swift</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" class="tech-icon"/>
+        <p>C</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" class="tech-icon" />
+        <p>C++</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="tech-icon"/>
+        <p>React</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="tech-icon" />
+        <p>Figma</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="tech-icon" />
+        <p>Git</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" class="tech-icon" />
+        <p>GitLab</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" class="tech-icon" />
+        <p>Kotlin</p>
+      </div>
+      <div class="tech">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" class="tech-icon" />
+        <p>php</p>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Features Section -->
+    <section class="features">
+      <h2 class="section-title">Powerful Features</h2>
+      <p class="section-subtitle">Discover the tools that will accelerate your coding journey and help you become a better developer.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Interactive Code Editor</h3>
+          <p class="feature-description">Write, test, and debug your code in our powerful editor with auto-completion and real-time error checking.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">AI-Powered Challenges</h3>
+          <p class="feature-description">Our AI analyzes your coding style and skill level to provide personalized challenges that help you grow.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="feature-title">Community Learning</h3>
+          <p class="feature-description">Connect with other developers, share solutions, and learn from the best practices of the global coding community.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3 class="stat-number">5,000+</h3>
+          <p class="stat-label">Coding Challenges</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="stat-number">15</h3>
+          <p class="stat-label">Programming Languages</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="stat-number">250K+</h3>
+          <p class="stat-label">Active Developers</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="stat-number">98%</h3>
+          <p class="stat-label">Satisfaction Rate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Chat Assistant Section -->
     
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
+    <section class="ai-chat-section">
+      <div class="ai-chat-container">
+        <div class="ai-chat-header">
+          <h2 class="section-title">AI Coding Assistant</h2>
+          <p>Chat with our friendly coding assistant.</p>
         </div>
-        <h3 class="feature-title">Interactive Code Editor</h3>
-        <p class="feature-description">Write, test, and debug your code in our powerful editor with auto-completion and real-time error checking.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-        <h3 class="feature-title">AI-Powered Challenges</h3>
-        <p class="feature-description">Our AI analyzes your coding style and skill level to provide personalized challenges that help you grow.</p>
-      </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-        </div>
-        <h3 class="feature-title">Community Learning</h3>
-        <p class="feature-description">Connect with other developers, share solutions, and learn from the best practices of the global coding community.</p>
-      </div>
-    </div>
-  </section>
+        <div class="ai-chat-content">
+          <div class="glass-chat-wrapper">
+            <div class="chat-orb chat-orb-1"></div>
+            <div class="chat-orb chat-orb-2"></div>
+            <div class="chat-orb chat-orb-3"></div>
+            <div class="chat-container" id="chatContainer">
+              <div class="glass-panel"></div>
+              <div class="chat-header">
+  <span class="glow">✨</span> Flix Bot <span class="glow">✨</span>
 
-  <!-- Stats Section -->
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h3 class="stat-number">5,000+</h3>
-        <p class="stat-label">Coding Challenges</p>
-      </div>
-      <div class="stat-item">
-        <h3 class="stat-number">15</h3>
-        <p class="stat-label">Programming Languages</p>
-      </div>
-      <div class="stat-item">
-        <h3 class="stat-number">250K+</h3>
-        <p class="stat-label">Active Developers</p>
-      </div>
-      <div class="stat-item">
-        <h3 class="stat-number">98%</h3>
-        <p class="stat-label">Satisfaction Rate</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI Chat Assistant Section -->
-   
-  <section class="ai-chat-section">
-    <div class="ai-chat-container">
-      <div class="ai-chat-header">
-        <h2 class="section-title">AI Coding Assistant</h2>
-        <p>Chat with our friendly coding assistant.</p>
-      </div>
-      <div class="ai-chat-content">
-        <div class="glass-chat-wrapper">
-          <div class="chat-orb chat-orb-1"></div>
-          <div class="chat-orb chat-orb-2"></div>
-          <div class="chat-orb chat-orb-3"></div>
-          <div class="chat-container" id="chatContainer">
-            <div class="glass-panel"></div>
-            <div class="chat-header">
-<span class="glow">✨</span> Flix Bot <span class="glow">✨</span>
-
-            </div>
-            <div class="chat-body" id="chatBody">
-              <div class="message bot">
-                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
-                <div class="message-content">Hey there! Need some help with coding?</div>
               </div>
-              <div class="message user">
-                <div class="message-content">Yes, I need help with my C program.</div>
-              </div>
-              <div class="message bot">
-                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
-                <div class="message-content">Got it! Let’s dive right in. What's your question?</div>
-              </div>
-              <div class="message user">
-                <div class="message-content">How do I reverse a string in C without using <code>strrev()</code>?</div>
-              </div>
-              <div class="message bot" id="typingIndicator">
-                <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
-                <div class="typing-indicator">
-                  <div class="typing-dot"></div>
-                  <div class="typing-dot"></div>
-                  <div class="typing-dot"></div>
+              <div class="chat-body" id="chatBody">
+                <div class="message bot">
+                  <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                  <div class="message-content">Hey there! Need some help with coding?</div>
+                </div>
+                <div class="message user">
+                  <div class="message-content">Yes, I need help with my C program.</div>
+                </div>
+                <div class="message bot">
+                  <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                  <div class="message-content">Got it! Let’s dive right in. What's your question?</div>
+                </div>
+                <div class="message user">
+                  <div class="message-content">How do I reverse a string in C without using <code>strrev()</code>?</div>
+                </div>
+                <div class="message bot" id="typingIndicator">
+                  <div class="bot-icon"><i class="ri-robot-2-line"></i></div>
+                  <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="chat-footer">
-              <input type="text" placeholder="Type a message..." id="messageInput" />
-              <button id="sendButton">
-                <i class="ri-send-plane-2-fill"></i>
-              </button>
-              
+              <div class="chat-footer">
+                <input type="text" placeholder="Type a message..." id="messageInput" />
+                <button id="sendButton">
+                  <i class="ri-send-plane-2-fill"></i>
+                </button>
+                
+              </div>
             </div>
           </div>
-        </div>
-        <div class="ai-chat-info">
-          <div class="ai-chat-features">
-            <div class="ai-feature">
-              <div class="ai-feature-icon"><i class="ri-lightbulb-flash-line"></i></div>
-              <h3>Smart Assistance</h3>
-              <p>GlassBot understands your coding problems and responds with clarity.</p>
-            </div>
-            <div class="ai-feature">
-              <div class="ai-feature-icon"><i class="ri-code-line"></i></div>
-              <h3>Coding Help</h3>
-              <p>Get help with your code instantly – from bugs to logic explanations.</p>
-            </div>
-            <div class="ai-feature">
-              <div class="ai-feature-icon"><i class="ri-terminal-box-line"></i></div>
-              <h3>Learn with Examples</h3>
-              <p>GlassBot gives you examples to help you understand better.</p>
+          <div class="ai-chat-info">
+            <div class="ai-chat-features">
+              <div class="ai-feature">
+                <div class="ai-feature-icon"><i class="ri-lightbulb-flash-line"></i></div>
+                <h3>Smart Assistance</h3>
+                <p>GlassBot understands your coding problems and responds with clarity.</p>
+              </div>
+              <div class="ai-feature">
+                <div class="ai-feature-icon"><i class="ri-code-line"></i></div>
+                <h3>Coding Help</h3>
+                <p>Get help with your code instantly – from bugs to logic explanations.</p>
+              </div>
+              <div class="ai-feature">
+                <div class="ai-feature-icon"><i class="ri-terminal-box-line"></i></div>
+                <h3>Learn with Examples</h3>
+                <p>GlassBot gives you examples to help you understand better.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <!-- Leaderboard Section -->
-<section class="leaderboard-section">
-  <div class="leaderboard-container">
-    <div class="section-header">
-      <h2 class="section-title">Top Coders Leaderboard</h2>
-      <p>Our highest-ranking developers this month</p>
-    </div>
+    </section>
     
-    <!-- Trophy Animation Container -->
-    <div class="trophy-container">
-      <div class="achievement-card">
-        <div class="achievement-icon">
-          <i class="ri-trophy-fill"></i>
-        </div>
-        <div class="achievement-text">
-          <small>Champion</small>
-          <strong>Code Master</strong>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Leaderboard Table -->
-    <div class="leaderboard-wrapper">
-      <div class="leaderboard-header">
-        <div class="rank-col">Rank</div>
-        <div class="user-col">User</div>
-        <div class="score-col">Score</div>
-        <div class="lang-col">Languages</div>
-        <div class="streak-col">Streak</div>
+    <!-- Leaderboard Section -->
+  <section class="leaderboard-section">
+    <div class="leaderboard-container">
+      <div class="section-header">
+        <h2 class="section-title">Top Coders Leaderboard</h2>
+        <p>Our highest-ranking developers this month</p>
       </div>
       
-      <div class="leaderboard-body" id="leaderboardBody">
-        <!-- Rows will be populated by JavaScript -->
+      <!-- Trophy Animation Container -->
+      <div class="trophy-container">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="ri-trophy-fill"></i>
+          </div>
+          <div class="achievement-text">
+            <small>Champion</small>
+            <strong>Code Master</strong>
+          </div>
+        </div>
       </div>
+      
+      <!-- Leaderboard Table -->
+      <div class="leaderboard-wrapper">
+        <div class="leaderboard-header">
+          <div class="rank-col">Rank</div>
+          <div class="user-col">User</div>
+          <div class="score-col">Score</div>
+          <div class="lang-col">Languages</div>
+          <div class="streak-col">Streak</div>
+        </div>
+        
+        <div class="leaderboard-body" id="leaderboardBody">
+          <!-- Rows will be populated by JavaScript -->
+        </div>
+      </div>
+      
+  <!-- New Rocket Animation Container -->
+  <div id="dynamicRockets"></div>
+
     </div>
+  </section>
+
+
     
- <!-- New Rocket Animation Container -->
-<div id="dynamicRockets"></div>
-
-  </div>
-</section>
-
-
-  
-  
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">CodeFlix<span class="logo-highlight">Labs</span></div>
-      <div class="footer-links">
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Pricing</a>
-        <a href="#">Documentation</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-logo">CodeFlix<span class="logo-highlight">Labs</span></div>
+        <div class="footer-links">
+          <a href="#">Home</a>
+          <a href="#">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Documentation</a>
+          <a href="#">Blog</a>
+          <a href="#">Contact</a>
+        </div>
+        <p class="copyright">© 2025 CodeFlixLabs. All rights reserved.</p>
       </div>
-      <p class="copyright">© 2025 CodeFlixLabs. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script>
+
+    
+
   // --- Basic Setup ---
   const heroContainer = document.getElementById('hero-brand');
   const heroHighlight = heroContainer?.querySelector('.text-highlight');
@@ -816,6 +829,45 @@ function launchRockets(count = 3) {
   }, { threshold: 0.3 });
 
   if (leaderboard) observer.observe(leaderboard);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const introAnimation = document.getElementById('introAnimation');
+    const mainContent = document.querySelector('.all_content');
+    const introParticles = document.getElementById('introParticles');
+
+    function createParticles() {
+      const particleCount = window.innerWidth < 768 ? 30 : 60;
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        const size = Math.random() * 4 + 2;
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        const xOffset = (Math.random() - 0.5) * 100;
+        const delay = Math.random() * 3;
+        particle.style.cssText = `
+          width: ${size}px;
+          height: ${size}px;
+          left: ${posX}%;
+          top: ${posY}%;
+          --x-offset: ${xOffset}px;
+          animation-delay: ${delay}s;
+        `;
+        introParticles.appendChild(particle);
+      }
+    }
+
+    createParticles();
+
+    setTimeout(() => {
+      introAnimation.style.opacity = '0';
+      mainContent.style.opacity = '1';
+      setTimeout(() => {
+        introAnimation.style.display = 'none';
+      }, 1800);
+    }, 5000);
+  });
+  
 
   
   </script>
